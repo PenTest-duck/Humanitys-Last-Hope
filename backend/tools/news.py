@@ -8,15 +8,28 @@ load_dotenv()
 
 NEWSAPI_KEY = os.getenv("NEWSAPI_KEY")
 
-class GetNewsToolInput(BaseModel):
-    pass
-
 class NewsArticle(BaseModel):
     title: str
     description: str
     source: str
     url: str
     published_at: str
+
+def get_news_tool() -> List[NewsArticle]:
+    response: dict = requests.get(f"https://newsapi.org/v2/top-headlines?country=us&apiKey={NEWSAPI_KEY}").json()
+    articles: List[NewsArticle] = []
+    for article in response.get("articles", []):
+        articles.append(NewsArticle(
+            title=article["title"],
+            description=article["description"] or article["content"] or "",
+            source=article["source"]["name"],
+            url=article["url"],
+            published_at=article["publishedAt"]
+        ))
+    return articles
+
+class GetNewsToolInput(BaseModel):
+    pass
 
 class GetNewsTool(BaseTool):
     name: str = "Get News"

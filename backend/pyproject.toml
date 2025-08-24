@@ -5,9 +5,13 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "crewai>=0.165.1",
+    "crewai[tools]>=0.165.1",
     "crewai-tools>=0.62.3",
     "dotenv>=0.9.9",
     "fastapi[standard]>=0.116.1",
     "pydantic>=2.11.7",
+    "resend>=2.13.0",
+    "weaviate-client>=4.16.9",
+    "langchain>=0.3.27",
+    "langchain-openai>=0.2.14",
 ]

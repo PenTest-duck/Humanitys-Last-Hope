@@ -1,0 +1,11 @@
+---
+advocate_for_action:
+  description: |-
+    Advocate for actions that align with the core values of humanity, using the insights from the analysis agent to guide the advocacy.
+    Here are the insights from the analysis agent: {humanity_analysis}
+    Send an email to advocate for action by using the SendEmailTool. You may want to search the web for email addresses to send to using the SerperDevTool. This could be politicians, powerful people, business people, companies, relevant entities etc.
+  expected_output: |-
+    Return the output once you are completely done.
+    JSON output with the following fields:
+      - summary: short paragraph summarizing what advocacy actions you have taken
+  agent: advocacy_agent

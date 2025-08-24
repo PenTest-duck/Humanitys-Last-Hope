@@ -1,5 +1,7 @@
+from typing import List
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from store import get_days, Day
 
 app = FastAPI()
 app.add_middleware(
@@ -10,6 +12,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/")
-def read_root():
-    return {"message": "Hello, World!"}
+def simulate_day(date: str) -> None:
+    pass
+
+@app.get("/api/days")
+def days_get() -> List[Day]:
+    return get_days()
+
+@app.post("/api/days")
+def days_post(date: str) -> None:
+    simulate_day(date)

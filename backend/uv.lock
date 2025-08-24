@@ -172,24 +172,44 @@ wheels = [
 ]
 
 [[package]]
+name = "authlib"
+version = "1.6.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "cryptography" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/8a/95/e4f4ab5ce465821fe2229e10985ab80462941fe5d96387ae76bafd36f0ba/authlib-1.6.2.tar.gz", hash = "sha256:3bde83ac0392683eeef589cd5ab97e63cbe859e552dd75dca010548e79202cb1", size = 160429 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/f4/00/fb65909bf4c8d7da893a12006074343402a8dc8c00d916b3cee524d97f3f/authlib-1.6.2-py2.py3-none-any.whl", hash = "sha256:2dd5571013cacf6b15f7addce03ed057ffdf629e9e81bacd9c08455a190e9b57", size = 239601 },
+]
+
+[[package]]
 name = "backend"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
-    { name = "crewai" },
+    { name = "crewai", extra = ["tools"] },
     { name = "crewai-tools" },
     { name = "dotenv" },
     { name = "fastapi", extra = ["standard"] },
+    { name = "langchain" },
+    { name = "langchain-openai" },
     { name = "pydantic" },
+    { name = "resend" },
+    { name = "weaviate-client" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "crewai", specifier = ">=0.165.1" },
+    { name = "crewai", extras = ["tools"], specifier = ">=0.165.1" },
     { name = "crewai-tools", specifier = ">=0.62.3" },
     { name = "dotenv", specifier = ">=0.9.9" },
     { name = "fastapi", extras = ["standard"], specifier = ">=0.116.1" },
+    { name = "langchain", specifier = ">=0.3.27" },
+    { name = "langchain-openai", specifier = ">=0.2.14" },
     { name = "pydantic", specifier = ">=2.11.7" },
+    { name = "resend", specifier = ">=2.13.0" },
+    { name = "weaviate-client", specifier = ">=4.16.9" },
 ]
 
 [[package]]
@@ -539,6 +559,11 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/3c/fd/4f1d30f8966a5d21c785f80b1edce2a0505373180ddeba5c2026c969dd5a/crewai-0.165.1.tar.gz", hash = "sha256:8f0c1e13fad39092ed7e2116722ec01361cb68a0ed5a05158374d1262cc49b8f", size = 6450486 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/59/01/68d92b7fffed5995a9b069e7517d353033d1735dac7d0349e5c62a18a842/crewai-0.165.1-py3-none-any.whl", hash = "sha256:9bdc8e26dfddd54a2a7046cc8625ea37a4cbd9588fa4d372317325421523ec25", size = 380622 },
+]
+
+[package.optional-dependencies]
+tools = [
+    { name = "crewai-tools" },
 ]
 
 [[package]]
@@ -3046,6 +3071,19 @@ wheels = [
 ]
 
 [[package]]
+name = "resend"
+version = "2.13.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "requests" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f0/f1/a68c35b2734d57b57ca9938ea2471894b6a04a79f21df0548b783df0b380/resend-2.13.0.tar.gz", hash = "sha256:a0b006d5093ba92c379e4501aeb9780f25050254e362dcc5b7a65e5f8dab2e5d", size = 15220 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ce/71/1e287dbaf903df39ae0de71a18c8c0b5f256d80869cffe8e62f2faa62f4f/resend-2.13.0-py2.py3-none-any.whl", hash = "sha256:949f827182996069229978debb295caea306e26a4e2041361a128eda450403d3", size = 22478 },
+]
+
+[[package]]
 name = "rich"
 version = "13.9.4"
 source = { registry = "https://pypi.org/simple" }
@@ -3644,6 +3682,15 @@ wheels = [
 ]
 
 [[package]]
+name = "validators"
+version = "0.35.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/53/66/a435d9ae49850b2f071f7ebd8119dd4e84872b01630d6736761e6e7fd847/validators-0.35.0.tar.gz", hash = "sha256:992d6c48a4e77c81f1b4daba10d16c3a9bb0dbb79b3a19ea847ff0928e70497a", size = 73399 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/fa/6e/3e955517e22cbdd565f2f8b2e73d52528b14b8bcfdb04f62466b071de847/validators-0.35.0-py3-none-any.whl", hash = "sha256:e8c947097eae7892cb3d26868d637f79f47b4a0554bc6b80065dfe5aac3705dd", size = 44712 },
+]
+
+[[package]]
 name = "watchfiles"
 version = "1.1.0"
 source = { registry = "https://pypi.org/simple" }
@@ -3717,6 +3764,24 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/6c/63/53559446a878410fc5a5974feb13d31d78d752eb18aeba59c7fef1af7598/wcwidth-0.2.13.tar.gz", hash = "sha256:72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5", size = 101301 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/fd/84/fd2ba7aafacbad3c4201d395674fc6348826569da3c0937e75505ead3528/wcwidth-0.2.13-py2.py3-none-any.whl", hash = "sha256:3da69048e4540d84af32131829ff948f1e022c1c6bdb8d6102117aac784f6859", size = 34166 },
+]
+
+[[package]]
+name = "weaviate-client"
+version = "4.16.9"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "authlib" },
+    { name = "deprecation" },
+    { name = "grpcio" },
+    { name = "httpx" },
+    { name = "protobuf" },
+    { name = "pydantic" },
+    { name = "validators" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f4/e4/6a0b1501645f17a851067fc7bd0d5b53dc9777f2818be9c43debe06eda19/weaviate_client-4.16.9.tar.gz", hash = "sha256:d461071f1ff5ebddd0fc697959628a1d8caa12af1da071401ef25583c3084eba", size = 766390 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/10/1a/fc66f5f33961351c759d56453d18176849da8f64186c941183bb574b808b/weaviate_client-4.16.9-py3-none-any.whl", hash = "sha256:8b4adabaec0d513edef94c8c1de61c89a86eba3b63a4dc1acdfc9580e80199f4", size = 579098 },
 ]
 
 [[package]]
