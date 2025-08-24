@@ -2,7 +2,8 @@ const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 export type Day = {
     date: string
-    note: string
+    summary: string
+    video_url: string
 }
 
 export const getDays = async () : Promise<Day[]> => {

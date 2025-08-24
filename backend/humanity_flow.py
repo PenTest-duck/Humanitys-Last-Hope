@@ -95,7 +95,8 @@ class HumanityFlow(Flow[AppState]):
     def save(self):
         add_day(
             date=datetime.now().strftime("%Y-%m-%d"),
-            note="This is a test note",
+            summary=self.state.humanity_analysis,
+            video_url=self.state.video_url,
         )
 
 if __name__ == "__main__":
